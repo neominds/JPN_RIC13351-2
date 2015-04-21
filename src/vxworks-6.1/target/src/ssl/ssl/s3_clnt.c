@@ -962,7 +962,7 @@ static int ssl3_get_key_exchange(SSL *s)
 
 	if (!ok) return((int)n);
 
-#ifdef JPN_RIC13351-2
+#ifdef JPN_RIC13351-2 // CVE-2014-3572
 
 	alg=s->s3->tmp.new_cipher->algorithms;
 	EVP_MD_CTX_init(&md_ctx);
@@ -1015,7 +1015,7 @@ static int ssl3_get_key_exchange(SSL *s)
 
 	param_len=0;
 
-#ifndef JPN_RIC13351-2
+#ifndef JPN_RIC13351-2  //CVE-2014-3572
 	alg=s->s3->tmp.new_cipher->algorithms;
 	EVP_MD_CTX_init(&md_ctx);
 
@@ -1024,6 +1024,20 @@ static int ssl3_get_key_exchange(SSL *s)
 #ifndef OPENSSL_NO_RSA
 	if (alg & SSL_kRSA)
 		{
+
+#ifdef JPN_RIC13351-2 //CVE-2015-0204
+
+		 /* Temporary Keys Only allowed in export ciphers */
+
+		if(!SSL_C_IS_EXPORT(s->s3->tmp.new_cipher))
+			{
+			al=SSL_AD_UNEXPECTED_MESSAGE;
+			SSLerr(SSL_F_SSL3_GET_KEY_EXCHANGE,SSL_R_UNEXPECTED_MESSAGE);
+			goto err;
+			}
+
+#endif
+
 		if ((rsa=RSA_new()) == NULL)
 			{
 			SSLerr(SSL_F_SSL3_GET_KEY_EXCHANGE,ERR_R_MALLOC_FAILURE);
