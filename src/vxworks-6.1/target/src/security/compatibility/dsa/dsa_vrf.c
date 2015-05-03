@@ -102,11 +102,16 @@ int DSA_verify(int type, const unsigned char *dgst, int dgst_len,
 	if (s == NULL) return(ret);
 
 #ifdef JPN_RIC13351-2  //CVE-2014-8275	
-      	if (d2i_DSA_SIG(&s,&p,siglen) == NULL) goto err; //CVE-2014-8275
+      	if (d2i_DSA_SIG(&s,&p,siglen) == NULL)
+		{
+ 		printf("\nfunc: DSA_verify line: %d\tDSA_err: non-DER variation\n",__LINE__);
+		goto err; //CVE-2014-8275
+		}
 	derlen = i2d_DSA_SIG(s,&der);
-	if(derlen != siglen || memcmp(sigbuf, der ,derlen)){
+	if(derlen != siglen || memcmp(sigbuf, der ,derlen))
+	{
 		printf("\nfunc: DSA_verify line: %d\tDSA_err: non-DER variation\n",__LINE__);
-	goto err;
+		goto err;
 	}
 #else
 
