@@ -3,5 +3,5 @@ VxWorks 6.1 Support for CVE-2015-0205, CVE-2014-3572, CVE-2015-0204, CVE-2014-82
 Feb-Apr 2015
 
 ************************************************************************************
-See docs/JPN_RIC13351-2_HowTo_Install_Build_Test_v05.docx for detailed instructions.
+See docs/JPN_RIC13351-2_HowTo_Install_Build_Test_v06.docx for detailed instructions.
 ************************************************************************************
