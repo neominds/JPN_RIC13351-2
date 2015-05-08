@@ -13,6 +13,8 @@ echo backing up Older files...
 ren %1\vxworks-6.1\target\src\ssl\ssl\s3_srvr.c s3_srvr_b4ric13351-2.c 
 ren %1\vxworks-6.1\target\src\ssl\ssl\s3_clnt.c s3_clnt_b4ric13351-2.c 
 
+ren %1\vxworks-6.1\target\src\ssl\ssl\s23_srvr.c s23_srvr_b4ric13351-2.c 
+
 ren %1\vxworks-6.1\target\src\security\certificate_support\asn1\a_verify.c a_verify_b4ric13351-2.c 
 ren %1\vxworks-6.1\target\src\security\certificate_support\asn1\a_type.c a_type_b4ric13351-2.c 
 ren %1\vxworks-6.1\target\src\security\certificate_support\asn1\x_algor.c x_algor_b4ric13351-2.c 
@@ -32,6 +34,7 @@ echo copying JPN_RIC13351-2 patch files...
 
 copy .\src\vxworks-6.1\target\src\ssl\ssl\s3_srvr.c %1\vxworks-6.1\target\src\ssl\ssl\s3_srvr.c
 copy .\src\vxworks-6.1\target\src\ssl\ssl\s3_clnt.c %1\vxworks-6.1\target\src\ssl\ssl\s3_clnt.c
+copy .\src\vxworks-6.1\target\src\ssl\ssl\s23_srvr.c %1\vxworks-6.1\target\src\ssl\ssl\s23_srvr.c
 
 copy .\src\vxworks-6.1\target\src\security\certificate_support\asn1\a_verify.c %1\vxworks-6.1\target\src\security\certificate_support\asn1\a_verify.c
 copy .\src\vxworks-6.1\target\src\security\certificate_support\asn1\a_type.c %1\vxworks-6.1\target\src\security\certificate_support\asn1\a_type.c
@@ -57,6 +60,7 @@ ren %1\vxworks-6.1\target\src\ssl\ssl\apps\Makefile Makefile_b4ric13351-2
 ren %1\vxworks-6.1\target\src\ssl\ssl\apps\Makefile.ssl Makefile_b4ric13351-2.ssl
 ren %1\vxworks-6.1\target\src\ssl\ssl\apps\Makefile.windriver Makefile_b4ric13351-2.windriver
 ren %1\vxworks-6.1\target\src\ssl\ssl\apps\ssl_apps_link_syms.c ssl_apps_link_syms_b4ric13351-2.c
+ren %1\vxworks-6.1\target\src\ssl\ssl\s23_srvr.c s23_srvr_b4ric13351-3.c 
 
 copy .\test_src\vxworks-6.1\target\src\ssl\ssl\apps\nm_client.c %1\vxworks-6.1\target\src\ssl\ssl\apps\nm_client.c
 copy .\test_src\vxworks-6.1\target\src\ssl\ssl\apps\nm_server.c %1\vxworks-6.1\target\src\ssl\ssl\apps\nm_server.c
@@ -65,6 +69,7 @@ copy .\test_src\vxworks-6.1\target\src\ssl\ssl\apps\progs.h %1\vxworks-6.1\targe
 copy .\test_src\vxworks-6.1\target\src\ssl\ssl\apps\Makefile %1\vxworks-6.1\target\src\ssl\ssl\apps\Makefile
 copy .\test_src\vxworks-6.1\target\src\ssl\ssl\apps\Makefile.ssl %1\vxworks-6.1\target\src\ssl\ssl\apps\Makefile.ssl
 copy .\test_src\vxworks-6.1\target\src\ssl\ssl\apps\Makefile.windriver %1\vxworks-6.1\target\src\ssl\ssl\apps\Makefile.windriver
+copy .\test_src\vxworks-6.1\target\src\ssl\ssl\s23_srvr.c %1\vxworks-6.1\target\src\ssl\ssl\s23_srvr.c
 
 )
 
