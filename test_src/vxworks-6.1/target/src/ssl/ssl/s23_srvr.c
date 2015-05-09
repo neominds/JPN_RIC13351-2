@@ -566,6 +566,7 @@ int ssl23_get_client_hello(SSL *s)
 
 		SSL_METHOD *new_method; //CVE-2014-3569
 		new_method=ssl23_get_server_method(s->version);
+printf("ssl23_get_client_hello:569 new_method = %p ",new_method);
 		if(new_method == NULL)
 		{
 			SSLerr(SSL_F_SSL23_GET_CLIENT_HELLO,SSL_R_UNSUPPORTED_PROTOCOL);
